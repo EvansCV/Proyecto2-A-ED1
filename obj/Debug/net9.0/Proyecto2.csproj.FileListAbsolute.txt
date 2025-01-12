@@ -20,3 +20,4 @@ c:\Users\evans\OneDrive - Estudiantes ITCR\Documentos\Documentos Verano 2024-202
 c:\Users\evans\OneDrive - Estudiantes ITCR\Documentos\Documentos Verano 2024-2025\Datos 1\Proyecto2\bin\Debug\net9.0\NAudio.WinMM.dll
 c:\Users\evans\OneDrive - Estudiantes ITCR\Documentos\Documentos Verano 2024-2025\Datos 1\Proyecto2\obj\Debug\net9.0\Proyecto2.csproj.AssemblyReference.cache
 C:\Users\evans\OneDrive - Estudiantes ITCR\Documentos\Documentos Verano 2024-2025\Datos 1\Proyecto2\obj\Debug\net9.0\Proyecto2.csproj.Up2Date
+c:\Users\evans\OneDrive - Estudiantes ITCR\Documentos\Documentos Verano 2024-2025\Datos 1\Proyecto2\obj\Debug\net9.0\Proyecto2.sourcelink.json

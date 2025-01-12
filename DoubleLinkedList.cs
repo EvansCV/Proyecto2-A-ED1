@@ -1,3 +1,7 @@
+using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
+using System.Transactions;
+
 namespace Proyecto2 {
     public class Node {
         // variable que almacena el dato del nodo.
@@ -12,6 +16,37 @@ namespace Proyecto2 {
             this.figura = figura;
             next = null;
             prev = null;
+        }
+
+        public string getNota() {
+            return nota;
+        }
+
+        public string getFigura() {
+            return figura;
+        }
+
+
+        // Método para obtener el siguiente nodo.
+        public Node getNext() {
+            return next;
+        }
+
+
+        // Método para setear el siguiente nodo.
+        public void setNext(Node node) {
+            next = node;
+        }
+
+        // Método para obtener el nodo anterior. 
+        public Node getPrev() {
+            return prev;
+        }
+
+
+        // Método para setear el nodo anterior.
+        public void setPrev(Node node) {
+            prev = node;
         }
     }
 
@@ -42,7 +77,7 @@ namespace Proyecto2 {
             return size == 0;
         }
 
-        // Función para agregar nodos a la lista, la cual es, la más importante en cuestión según el 
+        // Función para agregar nodos a la lista, la cual es, la más importante en cuestión, según el 
         // proyecto que se está realizando.
         public void agregar(string nota, string figura) {
             Node newnode = new Node(nota, figura);
@@ -58,5 +93,14 @@ namespace Proyecto2 {
             }
             size++;
         }
+        public void imprimirLista() { 
+            Node current = head;
+            while (current != null) {
+                Console.Write($"({current.getNota()}, {current.getFigura()})  -> ");
+                current = current.getNext();
+            }
+            Console.WriteLine("null");
+        }
     }
 }
+
