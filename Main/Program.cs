@@ -2,9 +2,34 @@
 
 class Program
 {
-    static void Main(string[] args)
+     static void Main(string[] args)
     {
-        Reproductor reproductor = new Reproductor();
+        Console.WriteLine("Seleccione una opción:");
+        Console.WriteLine("1. Ejecutar programa");
+        Console.WriteLine("2. Ejecutar pruebas");
+        string opcion = Console.ReadLine();
+
+        if (opcion == "1")
+        {
+            // Ejecutar el programa normal
+            EjecutarPrograma();
+        }
+        else if (opcion == "2")
+        {
+            // Ejecutar pruebas
+            Pruebas pruebas = new Pruebas();
+            pruebas.EjecutarPruebas();
+        }
+        else
+        {
+            Console.WriteLine("Opción no válida.");
+        }
+    }
+ 
+    
+    static void EjecutarPrograma()
+    {
+                Reproductor reproductor = new Reproductor();
 
         Console.WriteLine("Introduce la duracion de la negra (100 - 5000ms)");
         Console.WriteLine("Presiona Enter para usar el valor predeterminado de 1000ms");
@@ -55,5 +80,6 @@ class Program
                 Console.WriteLine($"Error: Nota o figura musical no encontrada");
             }
         }
+        
     }
-}
+    }
