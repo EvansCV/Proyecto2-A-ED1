@@ -7,7 +7,7 @@ class Program
         Console.WriteLine("Seleccione una opción:");
         Console.WriteLine("1. Ejecutar programa");
         Console.WriteLine("2. Ejecutar pruebas");
-        string opcion = Console.ReadLine();
+        string opcion = Console.ReadLine() ?? string.Empty;
 
         if (opcion == "1")
         {
@@ -35,7 +35,7 @@ class Program
         Console.WriteLine("Presiona Enter para usar el valor predeterminado de 1000ms");
         int baseDuration;
 
-        string input = Console.ReadLine();
+        string input = Console.ReadLine() ?? string.Empty;
 
         if (int.TryParse(input, out baseDuration))
         {
