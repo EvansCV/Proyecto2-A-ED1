@@ -6,7 +6,28 @@ class Program
     {
         Reproductor reproductor = new Reproductor();
 
-        int baseDuration = 1000;
+        Console.WriteLine("Introduce la duracion de la negra (100 - 5000ms)");
+        Console.WriteLine("Presiona Enter para usar el valor predeterminado de 1000ms");
+        int baseDuration;
+
+        string input = Console.ReadLine();
+
+        if (int.TryParse(input, out baseDuration))
+        {
+            if (baseDuration < 100 || baseDuration > 5000)
+            {
+                Console.WriteLine("El valor esta fuera de rango, se usara el valor default");
+                baseDuration = 1000;
+            }
+        }
+
+        else
+        {
+            Console.WriteLine("El valor esta fuera de rango, se usara el valor default");
+            baseDuration = 1000;
+        }
+
+        Console.WriteLine($"Duracion base para la negra: {baseDuration} ms");
 
         var melodia = new[]
         {
