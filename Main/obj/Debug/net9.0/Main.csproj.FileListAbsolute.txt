@@ -20,4 +20,3 @@ C:\Users\Alex\Desktop\Datos I\Proyecto 2\Main\obj\Debug\net9.0\refint\Main.dll
 C:\Users\Alex\Desktop\Datos I\Proyecto 2\Main\obj\Debug\net9.0\Main.pdb
 C:\Users\Alex\Desktop\Datos I\Proyecto 2\Main\obj\Debug\net9.0\Main.genruntimeconfig.cache
 C:\Users\Alex\Desktop\Datos I\Proyecto 2\Main\obj\Debug\net9.0\ref\Main.dll
-C:\Users\Alex\Desktop\Datos I\Proyecto 2\Main\bin\Debug\net9.0\SoundTouch.Net.dll

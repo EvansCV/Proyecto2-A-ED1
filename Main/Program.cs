@@ -1,73 +1,38 @@
-﻿using Sonidos;
+﻿using System;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        Console.WriteLine("Selecciona una opcion");
-        Console.WriteLine("1 - Reproducir DO");
-        Console.WriteLine("2 - Reproducir RE");
-        Console.WriteLine("3 - Reproducir MI");
-        Console.WriteLine("4 - Reproducir FA");
-        Console.WriteLine("5 - Reproducir SOL");
-        Console.WriteLine("6 - Reproducir SI");
-        Console.WriteLine("7 - Reproducir LA");
-        Console.WriteLine("8 - Reproducir Salir");
+        Reproductor reproductor = new Reproductor();
 
-        bool running = true;
+        int baseDuration = 1000;
 
-        while (running){
-            Console.Write("Seleccion: ");
-            var input = Console.ReadKey();
-            Console.WriteLine();
+        var melodia = new[]
+        {
+            new{ Nota = "Do", Figura = "Negra"},
+            new { Nota = "Re", Figura = "Blanca" },
+            new { Nota = "Mi", Figura = "Corchea" },
+            new { Nota = "Fa", Figura = "Semicorchea" },
+            new { Nota = "Sol", Figura = "Redonda" },
+            new { Nota = "La", Figura = "Negra" },
+            new { Nota = "Si", Figura = "Blanca" }
+        };
 
-            if (input.Key == ConsoleKey.D8){
-                running = false;
-                break;
+        foreach (var item in melodia)
+        {
+            if (Notas.Frecuencias.TryGetValue(item.Nota,out double frecuencia) &&
+            Figuras.Multiplicadores.TryGetValue(item.Figura, out double Multiplicador))
+            {
+                int duracion = (int)(baseDuration * Multiplicador);
+                Console.WriteLine($"Tocando {item.Nota} ({frecuencia} Hz)");
+                reproductor.ReproducirSonido((int)frecuencia, duracion, 75);
+                System.Threading.Thread.Sleep(100);
             }
-
-            Console.Write("Ingresa una Figura (0,5 , 2): ");
-            if (float.TryParse(Console.ReadLine(), out float velocidad)){
-            switch (input.Key){
-
-                case ConsoleKey.D1:
-                    Figura.ReproducirDo(velocidad);
-                    break;
-
-                case ConsoleKey.D2:
-                    Figura.ReproducirRe(velocidad);
-                    break;
-
-                case ConsoleKey.D3:
-                    Figura.ReproducirMi(velocidad);
-                    break;
-
-                case ConsoleKey.D4:
-                    Figura.ReproducirFa(velocidad);
-                    break;
-
-                case ConsoleKey.D5:
-                    Figura.ReproducirSol(velocidad);
-                    break;
-
-                case ConsoleKey.D6:
-                    Figura.ReproducirSi(velocidad);
-                    break;
-
-                case ConsoleKey.D7:
-                    Figura.ReproducirLa(velocidad);
-                    break;
-
-
-                default:
-                    Console.WriteLine("Opcion no valida");
-                    break;
-            }
-            }
-            else{
-                Console.WriteLine("Modificador no valido.");
+            else
+            {
+                Console.WriteLine($"Error: Nota o figura musical no encontrada");
             }
         }
-        Console.WriteLine("Saliendo del programa");
     }
 }
