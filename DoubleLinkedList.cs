@@ -131,9 +131,15 @@ namespace Proyecto2 {
             Console.WriteLine();
         }
         public void imprimirLista() {
+            Console.Write("null <= ");
             Node current = head;
             while (current != null) {
-                Console.Write($"({current.getNota()}, {current.getFigura()}) <=> ");
+                Console.Write($"({current.getNota()}, {current.getFigura()}) ");
+                if (current.getNext() == null) {
+                    Console.Write("=> ");
+                } else {
+                    Console.Write("<=> ");
+                }
                 current = current.getNext();
             }
             Console.WriteLine("null");

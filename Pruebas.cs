@@ -313,7 +313,7 @@ namespace Proyecto2 {
             Console.WriteLine("Prueba completada");
         }
         public void TestProbarMelodiaReves() {
-            Console.WriteLine("Test para comprobar que las notas de la lista enlazada se reproducen correctamente.");
+            Console.WriteLine("Test para comprobar que las notas de la lista enlazada se reproducen al revés de forma correcta.");
             Console.WriteLine("Para este test se utilizará el valor de la negra de un segundo");
             Console.WriteLine("Ingrese sus partituras utilizando el siguiente formato:\n");
             Console.WriteLine("(NOTA 1, FIGURA 1), (NOTA 2, FIGURA 2), ... (NOTA n, FIGURA n)\n");
@@ -350,6 +350,7 @@ namespace Proyecto2 {
         }
 
         public void TestTwinkleLittleStar() {
+            Console.WriteLine("Test para reproducir alguna melodía con diferentes valores de la negra y el uso de listas enlazadas.");
             Console.WriteLine("Se reproducirá una melodía similar a Twinkle Little Star según el valor que escriba de la negra.");
             // Pedir el valor de la negra al usuario
             Console.WriteLine("Introduce un nuevo valor para la figura negra (200 - 5000 ms):");
