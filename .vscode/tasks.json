@@ -1,16 +1,14 @@
 {
     "version": "2.0.0",
     "tasks": [
-      {
-        "label": "build",
-        "command": "dotnet",
-        "type": "process",
-        "args": [
-          "build",
-          "${workspaceFolder}"
-        ],
-        "problemMatcher": "$msCompile"
-      }
+        {
+            "type": "dotnet",
+            "task": "build C:\\Users\\evans\\OneDrive - Estudiantes ITCR\\Documentos\\Documentos Verano 2024-2025\\Datos 1\\Proyecto2\\Proyecto2.csproj",
+            "file": "C:\\Users\\evans\\OneDrive - Estudiantes ITCR\\Documentos\\Documentos Verano 2024-2025\\Datos 1\\Proyecto2\\Proyecto2.csproj",
+            "group": "build",
+            "problemMatcher": [],
+            "label": "dotnet: build C:\\Users\\evans\\OneDrive - Estudiantes ITCR\\Documentos\\Documentos Verano 2024-2025\\Datos 1\\Proyecto2\\Proyecto2.csproj"
+        }
     ]
-  }
+}
   

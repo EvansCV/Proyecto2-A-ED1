@@ -1,6 +1,3 @@
-using System.ComponentModel;
-using System.Security.Cryptography.X509Certificates;
-using System.Transactions;
 
 namespace Proyecto2 {
     public class Node {
@@ -53,11 +50,13 @@ namespace Proyecto2 {
 
     public class DoubleLinkedList{
         private Node head;
+        private Node tail; // De momento no se usa la cola.
         private int size;
 
 
         // Constructor.
         public DoubleLinkedList() {
+            tail = null;
             head = null;
             size = 0;
         }
@@ -68,6 +67,7 @@ namespace Proyecto2 {
 
         // Función para limpiar la lista.
         public void clear() {
+            tail = null;
             head = null;
             size = 0;
         }
@@ -83,20 +83,57 @@ namespace Proyecto2 {
             Node newnode = new Node(nota, figura);
             if (head == null) {
                 head = newnode;
+                tail = newnode;
             } else {
-                Node current = this.head;
+                Node current = head;
                 while (current.next != null) {
                     current = current.next;
                 }
                 current.next = newnode;
+                tail = newnode;
                 newnode.prev = current;
             }
             size++;
         }
-        public void imprimirLista() { 
+
+        // Función que toca la melodía guardada en la lista de forma normal.
+        public void listaDerecha(int baseDuration, Reproductor reproductor) { 
             Node current = head;
             while (current != null) {
-                Console.Write($"({current.getNota()}, {current.getFigura()})  -> ");
+                if (Notas.Frecuencias.TryGetValue(current.getNota(),out double frecuencia) &&
+                Figuras.Multiplicadores.TryGetValue(current.getFigura(), out double Multiplicador)){
+                     int duracion = (int)(baseDuration * Multiplicador);
+                    Console.WriteLine($"Tocando {current.getNota()} ({frecuencia} Hz)");
+                    reproductor.ReproducirSonido((int)frecuencia, duracion, 75);
+                    Thread.Sleep(100);
+                } else{
+                    Console.WriteLine($"Error: Nota o figura musical no encontrada");
+                }
+                current = current.getNext();
+            }
+        }
+
+        // Función que toca la melodía guardada en la lista al revés.
+        public void listaReversa(int baseDuration, Reproductor reproductor) {
+            Node current = tail;
+            while (current != null) {
+                if (Notas.Frecuencias.TryGetValue(current.getNota(),out double frecuencia) &&
+                Figuras.Multiplicadores.TryGetValue(current.getFigura(), out double Multiplicador)){
+                     int duracion = (int)(baseDuration * Multiplicador);
+                    Console.WriteLine($"Tocando {current.getNota()} ({frecuencia} Hz)");
+                    reproductor.ReproducirSonido((int)frecuencia, duracion, 75);
+                    Thread.Sleep(100);
+                } else{
+                    Console.WriteLine($"Error: Nota o figura musical no encontrada");
+                }
+                current = current.getPrev();
+            }
+            Console.WriteLine();
+        }
+        public void imprimirLista() {
+            Node current = head;
+            while (current != null) {
+                Console.Write($"({current.getNota()}, {current.getFigura()}) <=> ");
                 current = current.getNext();
             }
             Console.WriteLine("null");
